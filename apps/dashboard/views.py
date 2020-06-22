@@ -54,7 +54,7 @@ def Dashboard(request):
 			'Amenazas Criticas Detectadas',
 			template,
 			settings.EMAIL_HOST_USER,
-			['victorgonzalezcaballero.1999@gmail.com'],
+			[lista_emails],
 		)
 
 		email.fail_silently=False
