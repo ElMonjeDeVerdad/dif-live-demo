@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'DIF.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DIF',
-        'USER' : 'postgres',
-        'PASSWORD' : 'admin',
-        'HOST' : 'localhost',
+        'NAME': 'df2vcd91e5dpjn',
+        'USER' : 'ivevjufcrtefsu',
+        'PASSWORD' : 'e428959b51e16abe287057e12016d795e9c91c7c2ce5ecfd56c14c3e78b4d56c',
+        'HOST' : 'ec2-54-75-246-118.eu-west-1.compute.amazonaws.com',
         'PORT' : 5432,
     }
 }
