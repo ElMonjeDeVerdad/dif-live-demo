@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detecciones - SEKALL: DIF</title>
+	<!--Bootstrap css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	
+	<!--Charts JS CDN-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+	<!--Jquery library-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!--Popper library-->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<!--Bootstrap library JS-->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!--My JS Script-->
+	<script type="text/javascript" src="{% static 'js/chart3.js' %}"></script>
+	<!--My css-->
+	<link rel="stylesheet" href="{% static 'css/css.css' %}">
+		<!--My JS Script-->
+	<script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+
+	<link rel="shortcut icon" href="images/sk.ico" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Dashboard SekAll DIF"/>
+	<meta name="author" content="SekAll" />
+	<meta name="copyright" content="SekAll" />
+	<meta name="robots" content="noindex,nofollow"/>
+	<meta http-equiv="expires" content="600"/>
+	<!--	<meta http-equiv="refresh" content="15; url=http://dif.sekall.com/"/> -->
+
+</head>
+
+
+
+<body>
+
+<!-- --------Header-------------------- -->
+	<header >
+		<div class="page-header container-fluid cabecera">
+			<div class="">
+		      	<div class=" openbtn" onclick="toggleNav()"><img id="logo1" src="{% static 'img/sk.png' %}" alt="Logo" >
+		      		<img id="logo2" src="{% static 'img/logo.png' %}" alt="Sekall:DIF" >
+		      	</div>
+		     	<div class="">
+		     	</div>
+		      	<div class="loginbox">
+		      		<p class="textlogin" style="color:white;">{{request.user}} - {{empresa}}</p>
+					<a href="{% url 'logout' %}" class="textlogin" style="color:red;">Salir</a>
+				</div>
+				<img src="{% static 'img/avatar.png' %}" class="rounded-circle imglogin"></img>
+	      	</div>
+  		</div>
+	</header>
+
+<!-- -----Main content------------------------ -->
+
+		   <div class="container-fluid" id="content" style="height: 93.5%;overflow: hidden;position: absolute;top: 6.5%;"><!--FIX THIS DAMN IT-->
+		   		<div class="row h-100 onmobilescroll">
+		   			<!-- --------Menu----------------- -->
+		   			<div class="sidebar" id="iconsbar">
+		   					<!-- --------Dashboard----------------- -->
+			   			<div class="row menurow">
+			   				<div class="icomenu h-100" >
+			   					<img src="{% static 'img/sk.png' %}" class="imgmenu" />
+			   				</div>
+		   					<!-- --------Detections----------------- -->
+			   			<div class="row menurow icomenu h-100" style="opacity: 1;">
+			   					<img src="{% static 'img/detect.png' %}" class="imgmenu" />
+			   				</div>
+
+		   					<!-- --------Reports----------------- -->
+			   			<div class="row menurow icomenu h-100">
+			   					<img src="{% static 'img/reports.png' %}" class="imgmenu" style="opacity: 0.7;" />
+			   				</div>
+			   				<!-- --------VSP----------------- -->
+			   			<div class="row menurow icomenu h-100">
+			   					<img src="{% static 'img/vams.png' %}" class="imgmenu"/>
+			   				</div>
+
+			   				<!-- --------AM----------------- -->
+						<div class="row menurow icomenu  h-100">
+			   					<img src="{% static 'img/am.png' %}" class="imgmenu"/>
+			   				</div>
+
+			   				<!-- --------GDPR----------------- -->
+			   			<div class="row menurow icomenu h-100">
+			   					<img src="{% static 'img/gdpr.png' %}" class="imgmenu"/>
+			   				</div>
+
+			   				<!-- --------Settings----------------- -->
+			   			<div class="row menurow icomenu h-100">
+			   					<img src="{% static 'img/settings.png' %}" class="imgmenu"/>
+			   				</div>
+
+
+			   				<!-- --------SPACE----------------- -->
+			   			<div class="row menurow" style="height: 72%;">
+			   				<div class="icomenu"></div>
+
+			   			</div>
+
+		   			</div>
+		   		</div>
+		   			<!-- --------Menu----------------- -->
+		   			<div class="sidebar" id="mySidebar">
+
+		   				<div class="row menurow statusrow" >
+		   					<button type="button" class="menubutton hiddenmovile" style="background: linear-gradient(to right, rgba(49,49,49,1), rgba(49,49,49,1), rgba(1,181,73,0.5));justify-content: right;">
+		   						<h2 class="status">Estado: Seguro</h2>
+		   					</button>
+		   				</div>
+		   				    <!-- --------Home:DIF----------------- -->
+			              <div class="row menurow p0" >
+			                  <a type="button" class="menubutton" id="detections" href="{% url 'home' %}" >
+			                    <h2 class="textbutton">Inicio</h2>
+			                  </a>
+			              </div>
+		   					<!-- --------Detections----------------- -->
+			   			<div class="row menurow p0">
+			   					<a type="button" class="menubutton" id="detections" href="{% url 'detections' %}" style="background: radial-gradient(rgba(49,49,49,1), rgba(1,181,73,0.8));">
+			   						<h2 class="textbutton">Detecciones</h2>
+			   					</a>
+			   			</div>
+			   			<!-- --------Reports----------------- -->
+			   			<div class="row menurow p0">
+			   					<a type="button" class="menubutton" href="{% url 'reportes' %}" id="reportes">
+			   						<h2 class="textbutton">Reportes</h2>
+			   					</a>
+			   			</div>
+			   				<!-- --------VSP----------------- -->
+			   			<div class="row menurow p0">
+			   					<a type="button" class="menubutton" id="vsp" >
+			   						<h2 class="textbutton esc" >Escaner de vulnerabilidades</h2>
+			   					</a>
+			   			</div>
+			   				<!-- --------AM----------------- -->
+						<div class="row menurow p0">
+			   					<a type="button" class="menubutton" id="am">
+			   						<h2 class="textbutton">Monitorizacion</h2>
+			   					</a>
+			   			</div>
+			   				<!-- --------GDPR----------------- -->
+			   			<div class="row menurow p0">
+			   					<a type="button" class="menubutton" id="gdpr">
+			   						<h2 class="textbutton">Cumplimiento GDPR</h2>
+			   					</a>
+			   			</div>
+			   				<!-- --------Settings----------------- -->
+			   			<div class="row menurow p0">
+			   					<a type="button" class="menubutton" href="{% url 'gestion_cliente' %}" id="settings">
+			   						<h2 class="textbutton">Gestion de usuarios</h2>
+			   					</a>
+			   			</div>
+			   				<!-- --------SPACE----------------- -->
+
+
+		   			</div>
+
+
+
+		   			<!-- --------Main----------------- -->
+		   			<div class="container-fluid" id="main">
+				      	<!--detect-->
+				      <div class="row h-50 p0" id="Trafico">
+					      <div class="col-sm-12 col-md-3 col-lg-3 downrow">
+					      		<div class="ccontred" >
+									<canvas class="canvas" id="chart1" style=""></canvas>
+								</div>
+						</div><br/>
+					      <div class="col-sm-12 col-md-3 col-lg-3 downrow">
+					      		<div class="ccontred" >
+							<canvas class="canvas" id="chart2"></canvas></div>
+					      		</div>
+					      <div class="col-sm-12 col-md-6 col-lg-6 downrow">
+					      	<div class="ccontred" style="">
+					      		<canvas class="canvas" id="chart6" style=""></canvas>
+					      		</div>
+					      	</div>
+				      	</div>
+
+						<!--tabla detect-->
+				      <div class="row h-50" id="amenazas" style="padding: 0em;">
+					      <div class="col-sm-12 col-md-12 col-lg-12 uprow">
+					      	<div class="ccontred" style="padding:1%;">
+					      		<!-- HTML -->
+									<div id="chartdiv" style="overflow: hidden;">
+										<table id="amenazastabla">
+	
+
+	
+	<tr>
+		<th style="width: 10%;"><p class="tabla bold">ID</p></th>
+		<th style="width: 14%;"><p class="tabla bold">Ip Origen</p></th>
+		<th style="width: 14%;"><p class="tabla bold">Ip Destino</p></th>
+		<th style="width: 16%;"><p class="tabla bold">Fecha</p></th>
+		<th style="width: 5%;"><p class="tabla bold">Riesgo</p></th>
+		<th style="width: 13%;"><p class="tabla bold">Tipo</p></th>
+		<th style="width: 32%;"><p class="tabla bold">Descripcion</p></th>
+	</tr>
+
+	{% for alerta in alertas %}
+	<tr align="center" valign="middle">
+		<td><p class="tabla">{{alerta.id}}</p></td>
+		<td><p class="tabla">{{alerta.ip_origen}}:{{puerto_origen}}</p></td> 
+		<td><p class="tabla">{{alerta.ip_destino}}:{{puerto_destino}}</p></td> 
+		<td><p class="tabla">{{alerta.fecha}}</p></td> 
+		<td><p class="tabla">{{alerta.riesgo}}</p></td> 
+		<td><p class="tabla">{{alerta.tipo}}</p></td> 
+		<td><p class="tabla">{{alerta.mensaje}}</p></td> 
+	</tr>
+	{% endfor %}
+	
+
+
+
+
+
+			</table>
+			</div>
+					      		</div>
+					      	</div>
+				      	</div>
+				      	</div>
+      	</div>
+</div>
+
+
+	<footer class="page-footer">
+		<div class="container-fluid fixfooter">
+			
+				<p style="text-align: center; margin:0; padding: 0;font-weight: bold;">SekAll - DIF © - Demo 0.6</p>
+			
+		</div>	
+	</footer>
+
+</body>
+</html>

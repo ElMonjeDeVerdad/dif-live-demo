@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+				{% block content %}
+
+		   			<!-- --------Main----------------- -->
+		   			<div class="container-fluid" id="main">
+				      	<!--trafico-->
+				      <div class="row h-50 p0" id="Trafico">
+					      <div class="col-sm-12 col-md-3 col-lg-3 uprow">
+					      		<div class="ccontgreen">
+									<canvas class="canvas" id="chart4" style=""></canvas>
+								</div>
+						</div><br/>
+					      <div class="col-sm-12 col-md-3 col-lg-3 uprow">
+					      		<div class="ccontgreen">
+							<canvas class="canvas" id="chart3"></canvas></div>
+					      		</div>
+					      <div class="col-sm-12 col-md-6 col-lg-6 uprow">
+					      	<div class="ccontgreen" style="padding:1%;">
+					      		<!-- HTML -->
+									<div id="chartdiv"></div>
+					      		</div>
+					      	</div>
+				      	</div>
+
+						<!--amenazas-->
+				      <div class="row h-50" id="amenazas" style="padding: 0em;">
+					      <div class="col-sm-12 col-md-3 col-lg-3 downrow">
+					      		<div class="ccontred" >
+									<canvas class="canvas" id="chart1" style=""></canvas>
+								</div>
+						</div><br/>
+					      <div class="col-sm-12 col-md-3 col-lg-3 downrow">
+					      		<div class="ccontred" >
+							<canvas class="canvas" id="chart2"></canvas></div>
+					      		</div>
+					      <div class="col-sm-12 col-md-6 col-lg-6 downrow">
+					      	<div class="ccontred" style="">
+					      		<canvas class="canvas" id="chart5" style=""></canvas>
+					      		</div>
+					      	</div>
+				      	</div>
+      			</div>
+			</div>
+			{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PDF</title>
+	<style type="text/css">
+		
+			.tabla{padding: 0;height: auto;}
+
+	</style>
+</head>
+<body>
+	<h1>Sekall DIF - INFORME DE DETECCIONES</h1>
+	<table>
+	
+
+	
+	<tr>
+		<th style="width: 10%;"><p class="tabla bold">ID</p></th>
+		<th style="width: 14%;"><p class="tabla bold">Ip Origen</p></th>
+		<th style="width: 14%;"><p class="tabla bold">Ip Destino</p></th>
+		<th style="width: 16%;"><p class="tabla bold">Fecha</p></th>
+		<th style="width: 5%;"><p class="tabla bold">Riesgo</p></th>
+		<th style="width: 13%;"><p class="tabla bold">Tipo</p></th>
+		<th style="width: 32%;"><p class="tabla bold">Descripcion</p></th>
+	</tr>
+
+	{% for alerta in alertas %}
+	<tr align="center" valign="middle">
+		<td><p class="tabla">{{alerta.id}}</p></td>
+		<td><p class="tabla">{{alerta.ip_origen}}:{{puerto_origen}}</p></td> 
+		<td><p class="tabla">{{alerta.ip_destino}}:{{puerto_destino}}</p></td> 
+		<td><p class="tabla">{{alerta.fecha}}</p></td> 
+		<td><p class="tabla">{{alerta.riesgo}}</p></td> 
+		<td><p class="tabla">{{alerta.tipo}}</p></td> 
+		<td><p class="tabla">{{alerta.mensaje}}</p></td> 
+	</tr>
+	{% endfor %}
+	
+
+
+
+
+	</table>
+</body>
+</html>

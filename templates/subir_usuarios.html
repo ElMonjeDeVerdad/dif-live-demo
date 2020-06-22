@@ -1,0 +1,19 @@
+{% if messages %}
+	{% for message in messages %}
+	<div>
+		<strong>{{message|safe}}</strong>
+	</div>
+	{% endfor %}
+{% else %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<label>Subir CSV</label>
+	<input type="file" name="file">
+
+	<p>Solo sirven archivos CSV</p>
+	<button type="submit">Subir</button>
+</form>
+{% endif %}
+
+<a href="{% url 'gestion_admin' %}">Volver</a>
+

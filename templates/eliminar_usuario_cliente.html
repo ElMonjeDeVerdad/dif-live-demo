@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #6c6c6c !important;
+		}
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #313131;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {static
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+			
+		}
+
+		.white-p {
+			color: #fff;
+		}
+
+		.login_btn {
+			width: 100%;
+			background: #5ECF60 !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages{
+			background-color: black;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+	</style>
+
+</head>
+<body>
+<!-- --------Header-------------------- -->
+	<header >
+		<div class="container-fluid h-25" style="padding:0;">
+			<div class="page-header container-fluid" style="background-color:#313131;height: 60px;">
+				<div class="row">
+			      	<div class="col-lg-4"><img id="logo1" width="100px" height="100px" src="{% static 'img/sk.png' %}" alt="Logo" style="position: fixed ;top:0%;left:0%; margin-top: 0;padding-top: 5px;z-index: 3;">
+			      		<img id="logo2" width="395px" height="60px" src="{% static 'img/logo.png' %}" alt="Sekall:DIF" style="position: fixed ;top:0%; left:100px;">
+			      	</div>
+			     	<div class="col-lg-8">
+			     	</div>
+		      	</div>
+	  		</div>
+	  	</div>
+	</header>
+<!-- --------main-------------------- -->	
+	<div class="container h-75">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+
+
+					<h3 id="form-title">ELIMINAR USUARIOS</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form method="POST" action="">
+						{% csrf_token %}
+						<h3 id="form-title">¿Desea eliminar el registro del usuario {{usuario.username}}?</h3>
+						<input type="submit" value="Si, eliminar" class="btn btn-danger">
+						<a class="btn btn-default" href="{% url 'gestion_cliente' %}">Cancelar</a>
+					</form>
+
+				</div>
+
+				
+
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+		<footer class="page-footer">
+		<div class="container-fluid" style="background-color:#313131;position: fixed;width: 100%;bottom: 0;left:0;">
+			
+				<p style="text-align: center; margin:0; padding: 0;font-weight: bold;color:white;"> SekAll - DIF © - Demo 0.1 </p>
+			
+		</div>	
+	</footer>
+</body>
+
+</html>
