@@ -11,6 +11,8 @@ a:visited {text-decoration: none;}
 
 a:hover {text-decoration: none;}
 
+a:focus {text-decoration: none;}
+
 a:active {text-decoration: none;}
 
 .cabecera{background-color:#313131;height: 6.5%;  position: absolute;  top: 0;  width: 100%;z-index: 3;}
@@ -148,7 +150,6 @@ th, td {
 .textlogin{display: none;}
 .imglogin{}
 
-table{display: none;}
 
 .sidebar {padding-top: 0px;margin-top: 6.5%;z-index: 1;margin-left: 0;}
 #iconsbar{width: 8%;padding-top: 12%;z-index: 2;display: none;}
