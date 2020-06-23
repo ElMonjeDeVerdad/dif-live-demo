@@ -27,7 +27,7 @@ else{Chart.defaults.global.legend.position = 'bottom';Chart.defaults.global.main
   });
 
 //Esto se ejecuta cuando llegue a la linea del html que carga este script
-var endpoint = '/DIF/data'
+var endpoint = '/data'
 $.ajax({
     method: 'GET',
     url: endpoint,
