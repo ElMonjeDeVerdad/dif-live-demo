@@ -175,36 +175,7 @@ $.ajax({
 });
 
 
-var settings2 = {
-    type: 'doughnut',
-    data: {
-        labels: ['Smartphone', 'Server', 'BBDD', 'Pc'],
-        datasets: [{
-            data: [12, 19, 3, 5],
-            backgroundColor: [
-                  'rgba(148, 49, 38, 1)',
-                  'rgba(176, 58, 46, 1)',
-                  'rgba(203, 67, 53, 1)',
-                  'rgba(231, 76, 60, 1)'
-                       ],   
-                    }]
-                },
 
-                options: {
-                responsive: true,
-                
-                    legend: {
-                        
-                        labels: {
-                            fontColor: '#fff',
-                            boxWidth: 15,
-                            padding: 15,
-                            fontSize: 11
-                        }
-                    }
-
-                }
-            };
 
 
 
