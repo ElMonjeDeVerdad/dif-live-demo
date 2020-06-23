@@ -69,7 +69,7 @@ def Dashboard(request):
 
 #Pagina de detections################################################################################
 @login_required(login_url='login')
-@client_only
+@allowed_users(allowed_roles=['cliente', 'user'])
 def Detections(request):
 	empresa = Perfil.objects.get(user=request.user)
 	empresa = empresa.empresa
@@ -78,7 +78,7 @@ def Detections(request):
 
 	context = {'alertas':alertas, 'empresa':empresa}
 
-	return render(request, 'detections.html', context)
+	return render(request, 'Detections.html', context)
 
 
 #Página de reportes #################################################################################
