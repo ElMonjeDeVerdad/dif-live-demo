@@ -4,14 +4,14 @@ $(document).ready(function() {
 	//var ctx1 = $("#chart1");
     //var chart1 = new Chart (ctx1, settings1);
 
-    var ctx2 = $("#chart2");
-    var chart2 = new Chart (ctx2, settings2);
+    
+   
 
-    var ctx3 = $("#chart3");
-	var chart3 = new Chart (ctx3, settings3);
+    //var ctx3 = $("#chart3");
+	//var chart3 = new Chart (ctx3, settings3);
 
-    var ctx4 = $("#chart4");
-    var chart3 = new Chart (ctx4, settings4);
+    //var ctx4 = $("#chart4");
+    //var chart3 = new Chart (ctx4, settings4);
 
     var ctx5 = $("#chart5");
     var mixedChart = new Chart(ctx5, settings5);
@@ -32,13 +32,14 @@ $.ajax({
     method: 'GET',
     url: endpoint,
     success: function(data){
+        //alertas
         var ctx1 = $("#chart1");
         var settings1 = {
                 type: 'doughnut',
                 data: {
-        labels: data.labels,
+        labels: data.data1.labels1,
                     datasets: [{
-            data: data.data,
+            data: data.data1.data1,
                         backgroundColor: [
                             'rgba(148, 49, 38, 1)',
                             'rgba(176, 58, 46, 1)',
@@ -64,6 +65,110 @@ $.ajax({
                 }
             };
         var chart1 = new Chart (ctx1, settings1);
+
+        //ip origen  
+        var ctx4 = $("#chart4");
+        var settings4 = {
+        type: 'doughnut',
+        data: {
+        labels: data.data4.labels4,
+        datasets: [{
+            data: data.data4.data4,
+            backgroundColor: [
+                'rgba(24, 106, 59, 1)',
+                'rgba(35, 155, 86, 1)',
+                'rgba(40, 180, 99, 1)',
+                'rgba(29, 131, 72, 1)'
+                      ],   
+                    }]
+                },
+
+                options: {
+                responsive: true,
+                
+                    legend: {
+                        
+                        labels: {
+                            fontColor: '#fff',
+                            boxWidth: 15,
+                            padding: 15,
+                            fontSize: 11
+                        }
+                    }
+
+                }
+            };
+        var chart4 = new Chart (ctx4, settings4);
+
+        //ip destino
+        var ctx3 = $("#chart3");
+        var settings3 = {
+            type: 'doughnut',
+            data: {
+                labels: data.data3.labels3,
+                datasets: [{
+                    data: data.data3.data3,
+            backgroundColor: [
+                'rgba(24, 106, 59, 1)',
+                'rgba(35, 155, 86, 1)',
+                'rgba(40, 180, 99, 1)',
+                'rgba(29, 131, 72, 1)'
+                      ],   
+                    }]
+                },
+
+                options: {
+                responsive: true,
+                
+                    legend: {
+                        
+                        labels: {
+                            fontColor: '#fff',
+                            boxWidth: 15,
+                            padding: 15,
+                            fontSize: 11
+                        }
+                    }
+
+                }
+            };
+            var chart3 = new Chart (ctx3, settings3);
+
+            //riesgo
+            var ctx2 = $("#chart2");
+            var settings2 = {
+            type: 'doughnut',
+             data: {
+             labels: data.data2.labels2,
+                datasets: [{
+                   data: data.data2.data2,
+                 backgroundColor: [
+                  'rgba(148, 49, 38, 1)',
+                  'rgba(176, 58, 46, 1)',
+                  'rgba(203, 67, 53, 1)',
+                  'rgba(231, 76, 60, 1)'
+                       ],   
+                    }]
+                },
+
+                options: {
+                responsive: true,
+                
+                    legend: {
+                        
+                        labels: {
+                            fontColor: '#fff',
+                            boxWidth: 15,
+                            padding: 15,
+                            fontSize: 11
+                        }
+                    }
+
+                }
+            };
+            var chart2 = new Chart (ctx2, settings2);
+
+
     }
 
 
@@ -101,67 +206,9 @@ var settings2 = {
                 }
             };
 
-var settings3 = {
-    type: 'doughnut',
-    data: {
-        labels: ['Smartphone', 'Server', 'BBDD', 'Pc'],
-        datasets: [{
-            data: [12, 19, 3, 5],
-            backgroundColor: [
-                'rgba(24, 106, 59, 1)',
-                'rgba(35, 155, 86, 1)',
-                'rgba(40, 180, 99, 1)',
-                'rgba(29, 131, 72, 1)'
-                      ],   
-                    }]
-                },
 
-                options: {
-                responsive: true,
-                
-                    legend: {
-                        
-                        labels: {
-                            fontColor: '#fff',
-                            boxWidth: 15,
-                            padding: 15,
-                            fontSize: 11
-                        }
-                    }
 
-                }
-            };
 
-var settings4 = {
-    type: 'doughnut',
-    data: {
-        labels: ['Data', 'Navegador', 'Server', 'Ping'],
-        datasets: [{
-            data: [12, 19, 3, 5],
-            backgroundColor: [
-                'rgba(24, 106, 59, 1)',
-                'rgba(35, 155, 86, 1)',
-                'rgba(40, 180, 99, 1)',
-                'rgba(29, 131, 72, 1)'
-                      ],   
-                    }]
-                },
-
-                options: {
-                responsive: true,
-                
-                    legend: {
-                        
-                        labels: {
-                            fontColor: '#fff',
-                            boxWidth: 15,
-                            padding: 15,
-                            fontSize: 11
-                        }
-                    }
-
-                }
-            };
 
 
 var settings5 = {
