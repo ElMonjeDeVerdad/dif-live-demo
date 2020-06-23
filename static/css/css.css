@@ -163,8 +163,8 @@ th, td {
 .ccontgreen{height: auto; width: 100%;display: block;}
 .downrow{padding: 5px; margin: 0px;height: auto; width: 100%;}
 .ccontred{height: auto; width: 100%;display: block;}
-#trafico{height: 40%;margin-top: 3px;}
-#amenazas{height: 40%;margin-top: 8px;}
+#trafico{height: 40%;margin-top: 3px;margin-bottom: 5px;}
+#amenazas{height: 40%;margin-top: 8px;margin-top: 10px;}
 .canvas{height: auto; width: auto;font-size: 0.6em;}
 
 .onmobilescroll{overflow: auto;}
