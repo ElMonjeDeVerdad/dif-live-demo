@@ -367,19 +367,80 @@ class GetChartsData(APIView):
 		labels_list = []
 		data_alertas = []
 
+		labels_ip_origen = []
+		ip_origen_list = []
+		data_ip_origen = []
+
+		labels_ip_destino = []
+		ip_destino_list = []
+		data_ip_destino = []
+
+		labels_riesgo = []
+		riesgo_list = []
+		data_riesgo = []
+
 		for alerta in lista_alertas:
+			#ip origen
+			ip_origen_list.append(alerta.ip_origen)
+			if alerta.ip_origen not in labels_ip_origen:
+				labels_ip_origen.append(alerta.ip_origen)
+
+			#ip destino
+			ip_destino_list.append(alerta.ip_destino)
+			if alerta.ip_destino not in labels_ip_destino:
+				labels_ip_destino.append(alerta.ip_destino)
+
+			#riesgo
+			riesgo_list.append(alerta.riesgo)
+			if alerta.riesgo not in labels_riesgo:
+				labels_riesgo.append(alerta.riesgo)
+
+			#alertas
 			labels_list.append(alerta.tipo)
 			if alerta.tipo not in labels_alertas:
 				labels_alertas.append(alerta.tipo)
 
+		#ip origen
+		for label in labels_ip_origen:
+			repeticiones = ip_origen_list.count(label)
+			data_ip_origen.append(repeticiones)
+
+		#ip destino
+		for label in labels_ip_destino:
+			repeticiones = ip_destino_list.count(label)
+			data_ip_destino.append(repeticiones)
+
+		#riesgo
+		for label in labels_riesgo:
+			repeticiones = riesgo_list.count(label)
+			data_riesgo.append(repeticiones)
+
+		#alertas
 		for label in labels_alertas:
 			repeticiones = labels_list.count(label)
 			data_alertas.append(repeticiones)
 			
 
-		data = {
-			"labels": labels_alertas,
-			"data": data_alertas,
+		data1 = {
+			"labels1": labels_alertas,
+			"data1": data_alertas,
 		}
+
+		data2 = {
+			"labels2": labels_riesgo,
+			"data2": data_riesgo,
+		}
+
+		data3 = {
+			"labels3": labels_ip_destino,
+			"data3": data_ip_destino,
+		}
+
+		data4 = {
+			"labels4": labels_ip_origen ,
+			"data4": data_ip_origen,
+		}
+
+		data = {'data1':data1, 'data4':data4, 'data3':data3, 'data2': data2}
 		
 		return Response(data)
