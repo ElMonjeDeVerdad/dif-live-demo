@@ -33,6 +33,14 @@ from .models import Alerta, Perfil
 #Imports de Python
 import csv, io
 
+###########comprar DIF
+@unauthenticated_user
+def ComprarDIFTemplate(request):
+	context = {}
+
+	return render(request, 'comprar.html', context)
+
+
 #Pagina del dashboard
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['cliente', 'user'])
@@ -282,6 +290,7 @@ def loginPage(request):
 		return render(request, 'login.html', context)
 
 #Vista del logout
+@login_required(login_url='login')
 def logoutUser(request):
 	logout(request)
 	return redirect('login')

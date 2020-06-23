@@ -1,14 +1,15 @@
 from django.urls import path, include
-from .views import Dashboard, loginPage, AdminRegisterPage, ClientRegisterPage, logoutUser, Detections, AsignarEmpresa, GetChartsData, GestionAdmin, GestionCliente, reportes, deleteUser, deleteUserCliente, pdfVistaPrevia, DescargarPDF, subir_usuarios
+from .views import Dashboard, loginPage, AdminRegisterPage, ClientRegisterPage, logoutUser, Detections, AsignarEmpresa, GetChartsData, GestionAdmin, GestionCliente, reportes, deleteUser, deleteUserCliente, pdfVistaPrevia, DescargarPDF, subir_usuarios, ComprarDIFTemplate
 
 
 urlpatterns = [
 	path('home/', Dashboard, name="home"), #HOME
+	path('comprar/', ComprarDIFTemplate, name="comprar"), #COMPRAR DIF
 	path('detections/', Detections, name="detections"), #DETECCIONES
 	path('reportes/', reportes, name="reportes"), #REPORTES
 	path('gestion_admin/', GestionAdmin, name="gestion_admin"), #GESTIÓN ADMIN
 	path('gestion_cliente/', GestionCliente, name="gestion_cliente"), #GESTIÓN CLIENTE
-	path('login/', loginPage, name="login"), #LOGIN
+	path('', loginPage, name="login"), #LOGIN
 	path('registro_admin/', AdminRegisterPage, name="register"), #REGISTRO ADMIN
 	path('asignar_empresa/<str:id>', AsignarEmpresa, name="asignar_empresa"), #ASIGNAR EMPRESA
 	path('eliminar_usuario/<str:id>', deleteUser, name="eliminar_usuario"), #ELIMINAR USUARIO
